@@ -5,6 +5,18 @@
 
 ---
 
+## Note
+
+This research was conducted (in 2024) while I was working for a payment facilitator serving Muslim communities — a context where Arabic and Muslim naming conventions produce disproportionately high false positive rates in sanctions screening and adverse media searches. The report maps the full problem: the scale of false positives across the industry, the cost structure, the root cause (name matching without entity resolution), and the specific mechanics of why Arabic naming conventions — patronyms, high-frequency given names, transliteration variability — break existing screening systems. 
+
+The key solution proposed in the report was multi-attribute entity matching on structured KYC data, with Fellegi-Sunter probabilistic weighting. On unstructured adverse media, NER-based entity extraction is proposed. Prototypes were created to illustrate the shift from string matching to entity resolution. 
+
+Since this research was conducted, the compliance industry has moved aggressively in the direction this analysis pointed toward. Entity resolution is now the standard framing, but using far more data points than this research imagined. More significantly, the industry has leapfrogged rule-based and classical ML approaches entirely in favor of agentic AI systems: autonomous agents that conduct full alert investigations, write disposition narratives, and clear false positives with explainable audit trails. The prototypes here are not competitive with these commercial solutions. They were never intended to be. They demonstrate that the problem facing the compliance industry and customers with Arabic/Muslim names that were debanked, could be solved with the right technical architecture.
+
+
+
+---
+
 ## 1. The Problem
 
 Financial compliance — sanctions screening, AML monitoring, and fraud prevention — is plagued by extraordinarily high false positive rates. The European Central Bank reported in 2020 that **98–99% of compliance alerts are false positives**. Oracle and LexisNexis corroborate this, citing rates as high as 95% across financial crimes monitoring. In fraud prevention, up to 35% of rejected orders turn out to be legitimate, trending upward year over year (JPMorgan).
